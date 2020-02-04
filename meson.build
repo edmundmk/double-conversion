@@ -27,5 +27,5 @@ sources = [
 
 double_conversion_lib = library( 'double-conversion', sources : sources, install : true )
 double_conversion_lic = files( 'LICENSE' )
-double_conversion_dep = declare_dependency( include_directories : include_directories( 'double-conversion' ), link_with : double_conversion_lib )
+double_conversion_dep = declare_dependency( include_directories : include_directories( '.' ), link_with : double_conversion_lib )
 install_headers( headers, subdir : 'double-conversion' )
