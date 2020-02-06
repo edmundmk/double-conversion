@@ -32,7 +32,7 @@
 
 namespace double_conversion {
 
-class DoubleToStringConverter {
+class DOUBLE_CONVERSION_API DoubleToStringConverter {
  public:
   // When calling ToFixed with a double > 10^kMaxFixedDigitsBeforePoint
   // or a requested_digits parameter > kMaxFixedDigitsAfterPoint then the

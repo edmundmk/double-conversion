@@ -64,10 +64,28 @@ inline void abort_noreturn() { abort(); }
 #endif
 #endif
 
-#if defined(__clang__) && __has_attribute(uninitialized)
+#if defined(__clang__)
+#if __has_attribute(uninitialized)
 #define DOUBLE_CONVERSION_STACK_UNINITIALIZED __attribute__((uninitialized))
-#else
+#endif
+#endif
+
+#ifndef DOUBLE_CONVERSION_STACK_UNINITIALIZED
 #define DOUBLE_CONVERSION_STACK_UNINITIALIZED
+#endif
+
+#if defined( __GNUC__ )
+#define DOUBLE_CONVERSION_EXPORT __attribute__(( visibility( "default" ) ))
+#define DOUBLE_CONVERSION_IMPORT __attribute__(( visibility( "default" ) ))
+#elif defined( _MSC_VER )
+#define DOUBLE_CONVERSION_EXPORT __declspec( dllexport )
+#define DOUBLE_CONVERSION_IMPORT __declspec( dllimport )
+#endif
+
+#ifdef DOUBLE_CONVERSION_BUILD
+#define DOUBLE_CONVERSION_API DOUBLE_CONVERSION_EXPORT
+#else
+#define DOUBLE_CONVERSION_API DOUBLE_CONVERSION_IMPORT
 #endif
 
 // Double operations detection based on target architecture.

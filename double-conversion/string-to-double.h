@@ -32,7 +32,7 @@
 
 namespace double_conversion {
 
-class StringToDoubleConverter {
+class DOUBLE_CONVERSION_API StringToDoubleConverter {
  public:
   // Enumeration for allowing octals and ignoring junk when converting
   // strings to numbers.
