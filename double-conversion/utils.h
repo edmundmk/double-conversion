@@ -74,10 +74,7 @@ inline void abort_noreturn() { abort(); }
 
 #if DOUBLE_CONVERSION_HAS_ATTRIBUTE(uninitialized)
 #define DOUBLE_CONVERSION_STACK_UNINITIALIZED __attribute__((uninitialized))
-#endif
-#endif
-
-#ifndef DOUBLE_CONVERSION_STACK_UNINITIALIZED
+#else
 #define DOUBLE_CONVERSION_STACK_UNINITIALIZED
 #endif
 
